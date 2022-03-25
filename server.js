@@ -1,14 +1,16 @@
+const dotenv = require("dotenv")
+dotenv.config()
 const express = require('express');
 var mysql = require('mysql');
 const app = express();
 const port = 3000;
 
 var connection = mysql.createConnection({
-  user: 'root',
-  password: 'root',
-  server: 'localhost',
-  database: 'commerce-bdd',
-  port: '8889',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_PORT,
 });
 
 connection.connect();
